@@ -65,7 +65,7 @@ export default function ViewProfilePage() {
     // If it's already a full URL, return as is
     if (profilePicture.startsWith("http")) return profilePicture
     // Otherwise, construct the full URL
-    const apiUrl = localStorage.getItem("apiUrl") || "http://localhost:3001"
+    const apiUrl = localStorage.getItem("apiUrl") || "https://api.cimamplify.com"
     // Replace backslashes with forward slashes for URL compatibility
     const formattedPath = profilePicture.replace(/\\/g, "/")
     // Check if path already starts with a slash
@@ -138,7 +138,7 @@ export default function ViewProfilePage() {
         phoneNumber: editValues.phoneNumber?.trim() || "",
       }
 
-      const response = await fetch("http://localhost:3001/sellers/me", {
+      const response = await fetch("https://api.cimamplify.com/sellers/me", {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -205,7 +205,7 @@ export default function ViewProfilePage() {
         password: passwordData.newPassword,
       }
 
-      const response = await fetch("http://localhost:3001/sellers/me", {
+      const response = await fetch("https://api.cimamplify.com/sellers/me", {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -269,7 +269,7 @@ export default function ViewProfilePage() {
       const token = localStorage.getItem("token")
 
       // Get API URL from localStorage or use default
-      const apiUrl = localStorage.getItem("apiUrl") || "http://localhost:3001"
+      const apiUrl = localStorage.getItem("apiUrl") || "https://api.cimamplify.com"
 
       // Create form data with 'file' as the field name
       const formData = new FormData()
